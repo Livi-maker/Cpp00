@@ -16,6 +16,8 @@ int	main()
 			phonebook.add();
 		else if (command == "EXIT")
 			phonebook.ft_exit();
+		else if (command == "SEARCH")
+			phonebook.search();
 	}
 	return 0;
 }

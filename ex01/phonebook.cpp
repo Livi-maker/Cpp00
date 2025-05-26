@@ -1,4 +1,5 @@
 #include "phonebook.hpp"
+#include "contact.hpp"
 
 PhoneBook::PhoneBook(void)
 {};
@@ -21,6 +22,10 @@ void	PhoneBook::add()
 	std::getline(std::cin, number);
 	std::cout << "darkest secret:" << std::endl;
 	std::getline(std::cin, secret);
+	list[id] = Contact(first_name, last_name, nickname, number, secret);
+	if (id == 7)
+		id = 0;
+	id += 1;
 }
 
 void	PhoneBook::ft_exit()
@@ -30,4 +35,29 @@ void	PhoneBook::ft_exit()
 }
 
 void	PhoneBook::search()
-{};
+{
+	Contact 	contact;
+	int 		i;
+	char		number;
+	std::string	input;
+
+	number = '1';
+	std::cout << "Type the id of the contact you need to know" << std::endl;
+	for (i = 0; i < 8; i++)
+	{
+		contact.show_contact(list[i], i);
+		std::cout << std::endl;
+	}
+	std::getline(std::cin, input);
+	while (number != '9')
+	{
+		if (input[0] == number && !input[1])
+		{
+			contact.print_contact(list[std::stoi(input) - 1]);
+			return ;
+		}
+		number++;
+	}
+	std::cout << "invalid id" << std::endl;
+	search();
+};

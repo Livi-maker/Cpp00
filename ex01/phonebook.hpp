@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "contact.hpp"
 
 class PhoneBook {
 	public:
@@ -10,6 +11,9 @@ class PhoneBook {
 		void add(void);
 		void search(void);
 		void ft_exit(void);
+	private:
+		int	id = 0;
+		Contact list[8];
 };
 
 #endif
