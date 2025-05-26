@@ -21,8 +21,39 @@ void	Contact::print_contact(Contact contact)
 	std::cout << "DARKEST SECRET: " << contact.secret << std::endl;
 }
 
+void	Contact::check_and_print_field(std::string string)
+{
+	int	length;
+	int i;
+
+	length = string.length();
+	if (length == 10)
+	{
+		std::cout << string << " | ";
+		return ;
+	}
+	if (length > 10)
+	{
+		for (i = 0; i < 9; i++)
+			std::cout << string[i];
+		std::cout << ".";
+	}
+	else
+	{
+		std::cout << string;
+	while (length < 10)
+		{
+			std::cout << " ";
+			length++;
+		}
+	}
+	std::cout << " | ";
+}
+
 void	Contact::show_contact(Contact contact, int id)
 {
-	std::cout << id + 1 << " | " << contact.first_name << " | ";
-	std::cout << contact.last_name << " | " << contact.nickname;
+	std::cout << id + 1 << "          | ";
+	check_and_print_field(contact.first_name);
+	check_and_print_field(contact.last_name);
+	check_and_print_field(contact.nickname);
 }

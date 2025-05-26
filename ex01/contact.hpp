@@ -18,6 +18,7 @@ class Contact {
 		std::string nickname;
 		std::string number;
 		std::string secret;
+		void check_and_print_field(std::string string);
 };
 
 #endif
