@@ -12,15 +12,15 @@ void	PhoneBook::add()
 	std::string	number;
 	std::string secret;
 
-	std::cout << "first name:" << std::endl;
+	std::cout << "\033[1;81mfirst name:\033[0m" << std::endl;
 	std::getline(std::cin, first_name);
-	std::cout << "last name:" << std::endl;
+	std::cout << "\033[1;81mlast name:\033[0m" << std::endl;
 	std::getline(std::cin, last_name);
-	std::cout << "nickname:" << std::endl;
+	std::cout << "\033[1;81mnickname:\033[0m" << std::endl;
 	std::getline(std::cin, nickname);
-	std::cout << "phone number:" << std::endl;
+	std::cout << "\033[1;81mphone number:\033[0m" << std::endl;
 	std::getline(std::cin, number);
-	std::cout << "darkest secret:" << std::endl;
+	std::cout << "\033[1;81mdarkest secret:\033[0m" << std::endl;
 	std::getline(std::cin, secret);
 	list[id % 8] = Contact(first_name, last_name, nickname, number, secret);
 	id += 1;
@@ -28,7 +28,7 @@ void	PhoneBook::add()
 
 void	PhoneBook::ft_exit()
 {
-	std::cout << "Thank You For Using PhoneBook" << std::endl;
+	std::cout << "\033[1;97mThank You For Using PhoneBook\033[0m" << std::endl;
 	exit(0);
 }
 
@@ -41,11 +41,11 @@ void	PhoneBook::search()
 
 	if (id == 0)
 	{
-		std::cout << "No contacts saved" << std::endl;
+		std::cout << "\033[1;91mNo contact saved\033[0m" << std::endl;
 		return ;
 	}
 	number = '1';
-	std::cout << "Type the id of the contact you need to know" << std::endl;
+	std::cout << "\033[1;81mType the id of the contact you need to know\033[0m" << std::endl;
 	for (i = 0; i < 8; i++)
 	{
 		if (i < id)
@@ -64,7 +64,7 @@ void	PhoneBook::search()
 		}
 		number++;
 	}
-	std::cout << "invalid id" << std::endl;
+	std::cout << "\033[1;91minvalid id\033[0m" << std::endl;
 	if (!std::cin)
 		return ;
 	search();

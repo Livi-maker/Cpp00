@@ -13,12 +13,11 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 };
 
 void	Contact::print_contact(Contact contact)
-{
-	std::cout << "FIRST NAME: " << contact.first_name << std::endl;
-	std::cout << "LAST NAME: " << contact.last_name << std::endl;
-	std::cout << "NICKNAME: " << contact.nickname << std::endl;
-	std::cout << "PHONE NUMBER: " << contact.number << std::endl;
-	std::cout << "DARKEST SECRET: " << contact.secret << std::endl;
+{	std::cout << "\033[1;95mFIRST NAME:\033[0m " << contact.first_name << std::endl;
+	std::cout << "\033[1;95mLAST NAME:\033[0m " << contact.last_name << std::endl;
+	std::cout << "\033[1;95mNICKNAME:\033[0m " << contact.nickname << std::endl;
+	std::cout << "\033[1;95mPHONE NUMBER:\033[0m " << contact.number << std::endl;
+	std::cout << "\033[1;95mDARKEST SECRET:\033[0m " << contact.secret << std::endl;
 }
 
 void	Contact::check_and_print_field(std::string string)
@@ -29,7 +28,7 @@ void	Contact::check_and_print_field(std::string string)
 	length = string.length();
 	if (length == 10)
 	{
-		std::cout << string << " | ";
+		std::cout << string << " \033[1;91m|\033[0m ";
 		return ;
 	}
 	if (length > 10)
@@ -47,12 +46,12 @@ void	Contact::check_and_print_field(std::string string)
 			length++;
 		}
 	}
-	std::cout << " | ";
+	std::cout << " \033[1;91m|\033[0m ";
 }
 
 void	Contact::show_contact(Contact contact, int id)
 {
-	std::cout << id + 1 << "          | ";
+	std::cout << id + 1 << "          \033[1;91m|\033[0m ";
 	check_and_print_field(contact.first_name);
 	check_and_print_field(contact.last_name);
 	check_and_print_field(contact.nickname);
