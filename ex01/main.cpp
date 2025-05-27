@@ -7,6 +7,8 @@ int	main()
 
 	while (1)
 	{
+		if (!std::cin)
+			break ;
 		std::cout << "WHAT WOULD YOU LIKE TO DO? type:" << std::endl;
 		std::cout << "'ADD' to save a new contact" << std::endl;
 		std::cout << "'SEARCH' to display a specific contact" << std::endl;

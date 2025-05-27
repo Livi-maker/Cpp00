@@ -23,9 +23,9 @@ void	PhoneBook::add()
 	std::cout << "darkest secret:" << std::endl;
 	std::getline(std::cin, secret);
 	list[id] = Contact(first_name, last_name, nickname, number, secret);
-	if (id == 7)
-		id = 0;
 	id += 1;
+	if (id == 8)
+		id = 0;
 }
 
 void	PhoneBook::ft_exit()
@@ -59,5 +59,7 @@ void	PhoneBook::search()
 		number++;
 	}
 	std::cout << "invalid id" << std::endl;
+	if (!std::cin)
+		return ;
 	search();
 };
