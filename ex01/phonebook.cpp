@@ -36,15 +36,12 @@ void	PhoneBook::search()
 {
 	Contact 	contact;
 	int 		i;
-	char		number;
-	std::string	input;
 
 	if (id == 0)
 	{
 		std::cout << "\033[1;91mNo contact saved\033[0m" << std::endl;
 		return ;
 	}
-	number = '1';
 	std::cout << "\033[1;81mType the id of the contact you need to know\033[0m" << std::endl;
 	for (i = 0; i < 8; i++)
 	{
@@ -54,10 +51,20 @@ void	PhoneBook::search()
 			std::cout << std::endl;
 		}
 	}
+	this->get_id();
+}
+
+void	PhoneBook::get_id()
+{
+	Contact		contact;
+	char		number;
+	std::string	input;
+
+	number = '1';
 	std::getline(std::cin, input);
 	while (number != '9')
 	{
-		if (stoi(input) <= id && input[0] == number && !input[1])
+		if (std::stoi(input) <= id && input[0] == number && !input[1])
 		{
 			contact.print_contact(list[std::stoi(input) - 1]);
 			return ;
@@ -67,5 +74,5 @@ void	PhoneBook::search()
 	std::cout << "\033[1;91minvalid id\033[0m" << std::endl;
 	if (!std::cin)
 		return ;
-	search();
+	get_id();
 };

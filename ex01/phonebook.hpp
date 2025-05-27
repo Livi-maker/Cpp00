@@ -14,6 +14,7 @@ class PhoneBook {
 	private:
 		int	id = 0;
 		Contact list[8];
+		void get_id(void);
 };
 
 #endif
