@@ -22,10 +22,8 @@ void	PhoneBook::add()
 	std::getline(std::cin, number);
 	std::cout << "darkest secret:" << std::endl;
 	std::getline(std::cin, secret);
-	list[id] = Contact(first_name, last_name, nickname, number, secret);
+	list[id % 8] = Contact(first_name, last_name, nickname, number, secret);
 	id += 1;
-	if (id == 8)
-		id = 0;
 }
 
 void	PhoneBook::ft_exit()
@@ -41,17 +39,25 @@ void	PhoneBook::search()
 	char		number;
 	std::string	input;
 
+	if (id == 0)
+	{
+		std::cout << "No contacts saved" << std::endl;
+		return ;
+	}
 	number = '1';
 	std::cout << "Type the id of the contact you need to know" << std::endl;
 	for (i = 0; i < 8; i++)
 	{
-		contact.show_contact(list[i], i);
-		std::cout << std::endl;
+		if (i < id)
+		{
+			contact.show_contact(list[i], i);
+			std::cout << std::endl;
+		}
 	}
 	std::getline(std::cin, input);
 	while (number != '9')
 	{
-		if (input[0] == number && !input[1])
+		if (stoi(input) <= id && input[0] == number && !input[1])
 		{
 			contact.print_contact(list[std::stoi(input) - 1]);
 			return ;
