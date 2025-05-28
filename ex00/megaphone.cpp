@@ -7,7 +7,10 @@ int	main(int ac, char **av)
 	int	index;
 
 	if (ac == 1)
+	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return 0;
+	}
 	for (arg = 1; av[arg]; arg++)
 	{
 		for (index = 0; av[arg][index]; index++)
