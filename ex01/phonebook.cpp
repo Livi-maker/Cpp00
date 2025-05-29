@@ -1,10 +1,10 @@
 #include "phonebook.hpp"
 #include "contact.hpp"
 
-int PhoneBook::id = 0;
-
 PhoneBook::PhoneBook(void)
-{};
+{
+	id = 0;
+};
 
 void	PhoneBook::add()
 {

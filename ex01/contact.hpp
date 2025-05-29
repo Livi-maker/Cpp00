@@ -17,8 +17,8 @@
 #include <string>
 #include <cstdlib>
 
-class Contact {
-
+class Contact
+{
 	public:
 		Contact(void);
 		Contact(std::string first_name, std::string last_name, std::string nickname, std::string number, std::string secret);

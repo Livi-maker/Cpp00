@@ -27,7 +27,7 @@ class PhoneBook {
 		void ft_exit(void);
 
 	private:
-		static int	id;
+		int	id;
 		Contact		list[8];
 		void		get_id(void);
 		std::string	get_input(std::string);
