@@ -1,6 +1,8 @@
 #include "phonebook.hpp"
 #include "contact.hpp"
 
+int PhoneBook::id = 0;
+
 PhoneBook::PhoneBook(void)
 {};
 
@@ -12,18 +14,13 @@ void	PhoneBook::add()
 	std::string	number;
 	std::string secret;
 
-	std::cout << "\033[1;81mfirst name:\033[0m" << std::endl;
-	std::getline(std::cin, first_name);
-	std::cout << "\033[1;81mlast name:\033[0m" << std::endl;
-	std::getline(std::cin, last_name);
-	std::cout << "\033[1;81mnickname:\033[0m" << std::endl;
-	std::getline(std::cin, nickname);
-	std::cout << "\033[1;81mphone number:\033[0m" << std::endl;
-	std::getline(std::cin, number);
-	std::cout << "\033[1;81mdarkest secret:\033[0m" << std::endl;
-	std::getline(std::cin, secret);
+	first_name = get_input("first name:");
+	last_name = get_input("last name:");
+	nickname = get_input("nickname:");
+	number = get_input("phone number:");
+	secret = get_input("darkest secret:");
 	list[id % 8] = Contact(first_name, last_name, nickname, number, secret);
-	id += 1;
+	this->id += 1;
 }
 
 void	PhoneBook::ft_exit()
@@ -45,7 +42,7 @@ void	PhoneBook::search()
 	std::cout << "\033[1;81mType the id of the contact you need to know\033[0m" << std::endl;
 	for (i = 0; i < 8; i++)
 	{
-		if (i < id)
+		if (i < this->id)
 		{
 			contact.show_contact(list[i], i);
 			std::cout << std::endl;
@@ -64,9 +61,9 @@ void	PhoneBook::get_id()
 	std::getline(std::cin, input);
 	while (number != '9')
 	{
-		if (std::stoi(input) <= id && input[0] == number && !input[1])
+		if (std::atoi(input.c_str()) <= id && input[0] == number && !input[1])
 		{
-			contact.print_contact(list[std::stoi(input) - 1]);
+			contact.print_contact(list[std::atoi(input.c_str()) - 1]);
 			return ;
 		}
 		number++;
@@ -74,5 +71,20 @@ void	PhoneBook::get_id()
 	std::cout << "\033[1;91minvalid id\033[0m" << std::endl;
 	if (!std::cin)
 		return ;
+	std::cout << "\033[1;81mType the id of the contact you need to know\033[0m" << std::endl;
 	get_id();
 };
+
+std::string	PhoneBook::get_input(std::string to_print)
+{
+	std::string input;
+
+	while (input.size() == 0)
+	{
+		if (!std::cin)
+			break ;
+		std::cout << "\033[1;81m" << to_print << "\033[0m" << std::endl;
+		std::getline(std::cin, input);
+	}
+	return (input);
+}

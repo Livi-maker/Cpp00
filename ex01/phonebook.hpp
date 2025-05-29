@@ -16,17 +16,21 @@
 #include <iostream>
 #include <string>
 #include "contact.hpp"
+#include <cstdlib>
 
 class PhoneBook {
+
 	public:
 		PhoneBook();
 		void add(void);
 		void search(void);
 		void ft_exit(void);
+
 	private:
-		int	id = 0;
-		Contact list[8];
-		void get_id(void);
+		static int	id;
+		Contact		list[8];
+		void		get_id(void);
+		std::string	get_input(std::string);
 };
 
 #endif

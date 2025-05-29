@@ -51,19 +51,19 @@ void	Contact::check_and_print_field(std::string string)
 	}
 	else
 	{
-		std::cout << string;
 	while (length < 10)
 		{
 			std::cout << " ";
 			length++;
 		}
+		std::cout << string;
 	}
 	std::cout << " \033[1;91m|\033[0m ";
 }
 
 void	Contact::show_contact(Contact contact, int id)
 {
-	std::cout << id + 1 << "          \033[1;91m|\033[0m ";
+	std::cout << "         " << id + 1 << " \033[1;91m|\033[0m ";
 	check_and_print_field(contact.first_name);
 	check_and_print_field(contact.last_name);
 	check_and_print_field(contact.nickname);
