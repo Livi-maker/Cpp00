@@ -12,7 +12,7 @@
 
 NAME = megaphone
 
-SOURCES = megaphone.cpp
+SOURCES = Megaphone.cpp
 
 OBJ = $(SOURCES:.cpp=.o)
 

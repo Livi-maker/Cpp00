@@ -1,5 +1,5 @@
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 PhoneBook::PhoneBook(void)
 {
@@ -25,7 +25,7 @@ void	PhoneBook::add()
 
 void	PhoneBook::ft_exit()
 {
-	std::cout << "\033[1;97mThank You For Using PhoneBook\033[0m" << std::endl;
+	std::cout << "\033[0;93mThank You For Using PhoneBook\033[0m" << std::endl;
 	exit(0);
 }
 
